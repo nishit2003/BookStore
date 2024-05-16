@@ -12,6 +12,7 @@ app.use('/books', booksRoute)
 
 // middleware for handling CORS
 app.use(cors());
+
 // app.use( 
 //    cors({
 //    origin: 'http://localhost:5555/', // Allow only this origin
