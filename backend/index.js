@@ -6,22 +6,26 @@ import booksRoute from "./routes/BooksRoutes.js";
 import cors from "cors";
 
 const app = express();
+
 // middleware for parsing request body
 app.use(express.json())
-app.use('/books', booksRoute)
 
 // middleware for handling CORS
 app.use(cors());
 
 // app.use( 
 //    cors({
-//    origin: 'http://localhost:5555/', // Allow only this origin
+//    origin: 'http://localhost:5173/', // Allow only this origin
 //    methods: ['GET', 'POST', 'PUT' , 'DELETE'], // Allow only GET and POST requests
 //    allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
 // }))
+
+
 app.get("/", (req,res)=> {
    return res.status(234).send("Welcome")
 });
+
+app.use('/books', booksRoute)
 
 mongoose
    .connect(mongoDBURL)

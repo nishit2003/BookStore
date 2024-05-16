@@ -8,7 +8,7 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
