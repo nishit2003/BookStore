@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import { Book } from "./modules/bookModules.js";
 
 const app = express();
+// middleware for parsing request body
+app.use(express.json())
 
 app.get("/", (req,res)=> {
    return res.status(234).send("Welcome")
@@ -26,7 +28,7 @@ app.post("/books", async (req,res)=>{
          publishYear: req.body.publishYear,
       }
       const book = await Book.create(NewBook)
-      return res.status(200).send(book)
+      return res.status(201).send(book)
    }
    catch(err){
       console.log(err.message)
